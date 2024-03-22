@@ -1,7 +1,6 @@
 package com.example.controledeestoque.activity
 
 import android.util.Log
-import android.widget.Space
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -25,9 +24,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.controledeestoque.tools.Routes
 
 @Composable
-fun Login(paddingValues: PaddingValues) {
+fun Login(paddingValues: PaddingValues, navController: NavController) {
     var email by remember { mutableStateOf("") }
     var senha by remember { mutableStateOf("") }
     Column(
@@ -72,7 +73,7 @@ fun Login(paddingValues: PaddingValues) {
         }
         Text(text = "ou")
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { navController.navigate(Routes.CreateAccount.route) },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Registrar")
